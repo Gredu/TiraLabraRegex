@@ -15,7 +15,7 @@ n. 9 tuntia on käytetty tällä viikolla.
   - tutustunut hieman säännöllisiin lausekkeisin
   - opetellut Go:ta
   - luonut git-repon
-  - tehnyt alustavan ohjelointisuunnitelman 
+  - tehnyt alustavan ohjelmointisuunnitelman 
   - hieman ohjelmoinnut.
 
 
