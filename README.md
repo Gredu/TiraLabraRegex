@@ -1,6 +1,6 @@
-# Tietorakenteiden harjoitustyö: regex tulkki
+# Tietorakenteiden harjoitustyö: regexp tulkki
 
-Säännölliset lausekkeet, eli regular expression, eli regex, on syötteen tai hahmon tunnistamiseen käytettävä kieli. Säännölliset lauseet voi ajatella olevan hakuehtoja, joilla tunnistetaan tai löydetään tekstissä kyseisen haun täyttävän ehdon. Haku voi olla huomattavasti monimutkaisempi kuin perinteinen "etsi sivulta", koska säännöllisten lausekkeiden rakenteet voivat sisältää ehtoja ja muuttujia.
+Säännölliset lausekkeet, eli regular expression, eli regexp, on syötteen tai hahmon tunnistamiseen käytettävä kieli. Säännölliset lauseet voi ajatella olevan hakuehtoja, joilla tunnistetaan tai löydetään tekstissä kyseisen haun täyttävän ehdon. Haku voi olla huomattavasti monimutkaisempi kuin perinteinen "etsi sivulta", koska säännöllisten lausekkeiden rakenteet voivat sisältää ehtoja ja muuttujia.
 
 Erilaisia syntakseja säännöllisille lausekkeille on paljon. Eri ohjelmointikielet sisältävät yleensä jonkinlaisen säännöllisten kielten tulkin. Tässä harjoituksessa noudatetaan ainakin alkuun JavaScriptin säännöllisiä lausekkeita, mutta lopputyö tulee sisältämään luultavasti jotain muitakin ideoita muista kielistä.
 
