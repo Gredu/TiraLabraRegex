@@ -41,7 +41,7 @@ Ilmaisevat miten monta kertaa on edellistä ilmaisua toistettava.
 Esimerkiksi edellinen esimerkki olisi voitu kirjoittaa muotoon `\\d{2}-\\{2}-\\d{4}` ja hyväksyy samat sanat.
 
 
-## Ohjelman idea
+## Ohjelmoinnin idea
 
 Tarkoitus on mallintaa Laskennan mallin äärellisiä laitteita. Säännöllinen lauseke siis esitetään automaatilla. Tällä toivottavasti on sellainen vaikutus, että eri säännöllisen lausekkeen ilmaisuja on helppo yhdistää samalla tavalla kuin automaatteja on helppo yhdistää.
 
