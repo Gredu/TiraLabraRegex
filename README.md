@@ -39,3 +39,13 @@ Ilmaisevat miten monta kertaa on edellistä ilmaisua toistettava.
   - `{k}` toistetaan k-verran
 
 Esimerkiksi edellinen esimerkki olisi voitu kirjoittaa muotoon `\\d{2}-\\{2}-\\d{4}` ja hyväksyy samat sanat.
+
+
+## Ohjelman idea
+
+Tarkoitus on mallintaa Laskennan mallin äärellisiä laitteita. Säännöllinen lauseke siis esitetään automaatilla. Tällä toivottavasti on sellainen vaikutus, että eri säännöllisen lausekkeen ilmaisuja on helppo yhdistää samalla tavalla kuin automaatteja on helppo yhdistää.
+
+Ohjelma sisältää automaatista tuttuja komponentteja. `state State` ilmaisee tilaa, eli Laskennan malleista Q:ta. Tämä kantaa kaksi ominaisuutta; tietoa siitä, onko hyväksytyssä tilassa `accept bool`, sekä mahdollisia tiloja joihin voi mennä `transition Transition`, joka vastaa Laskennan malleissa delta-funktiota. `Transition` vastaa yhtä deltaa. Sillä on siis tieto mihin tilaan voidaan päästä, jos `token Token` sen hyväksyy. `Token` sisältää tietueet `typeOperator` ja `value`. Nämä arvot kertovat minkälaista funktiota on käytetteävä (ei toteutettu vielä).
+
+`typeOperator` vastaa siis mitä edellisessä osiossa määriteltiin, eli onko kyse literaali, meta vai määrä. Kun sopiva funktio on valittu, siihen käytetään parametrina `value` arvoa.
+
