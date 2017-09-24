@@ -10,7 +10,7 @@ func main() {
 
 	evalToken(token)
 
-	var regexp = "foo*ba?"
+	var regexp = "som\\dsom"
 
 	tokens := parseRegexp(regexp)
 
@@ -36,6 +36,9 @@ func parseRegexp(regexp string) []Token {
 		case "?":
 			tokens[j-1] = Token{typeOperator: "questionmark", value: tokens[j-1].value}
 			j--
+		case "\\":
+			tokens[j] = Token{typeOperator: "meta", value: fmt.Sprintf("%c", regexp[i+1])}
+			i++
 		default:
 			tokens[j] = Token{typeOperator: "literal", value: c}
 		}
