@@ -10,22 +10,18 @@ func main() {
 
 	evalToken(token)
 
-	var regexp = "abc"
+	var regexp = "abc*defg"
 
 	tokens := parseRegexp(regexp)
 
 	fmt.Println(tokens)
-
-	fmt.Println("---")
-
-	var machine = generateMachine(tokens)
-	fmt.Println(machine.transitions[0].state.transitions[0].state.transitions[0].token.value)
 
 }
 
 func parseRegexp(regexp string) []Token {
 
 	tokens := make([]Token, len(regexp))
+	sliceRight := 0
 
 	for i, j := 0, 0; i < len(tokens); i, j = i+1, j+1 {
 
@@ -36,19 +32,24 @@ func parseRegexp(regexp string) []Token {
 		case "*":
 			tokens[j-1] = Token{typeOperator: "star", value: tokens[j-1].value}
 			j--
+			sliceRight++
 		case ".":
 			tokens[j] = Token{typeOperator: "dot", value: "."}
 		case "?":
 			tokens[j-1] = Token{typeOperator: "questionmark", value: tokens[j-1].value}
 			j--
+			sliceRight++
 		case "\\":
 			tokens[j] = Token{typeOperator: "meta", value: fmt.Sprintf("%c", regexp[i+1])}
 			i++
+			sliceRight++
 		default:
 			tokens[j] = Token{typeOperator: "literal", value: c}
 		}
 
 	}
+
+	tokens = tokens[:len(tokens)-sliceRight]
 	return tokens
 }
 
