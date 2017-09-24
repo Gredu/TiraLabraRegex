@@ -10,11 +10,16 @@ func main() {
 
 	evalToken(token)
 
-	var regexp = "som\\dsom"
+	var regexp = "abc"
 
 	tokens := parseRegexp(regexp)
 
 	fmt.Println(tokens)
+
+	fmt.Println("---")
+
+	var machine = generateMachine(tokens)
+	fmt.Println(machine.transitions[0].state.transitions[0].state.transitions[0].token.value)
 
 }
 
@@ -62,22 +67,14 @@ func evalToken(t Token) {
 
 }
 
-func generateMachine(regexp string) State {
+func generateMachine(tokens []Token) State {
 	var firstState State
 	var currentState *State = &firstState
 
-	for i := 0; i < len(regexp); i++ {
-
-		var token Token
-		token.typeOperator = "literal"
-		token.value = string(regexp[i])
+	for _, token := range tokens {
 
 		var nextState State
-		if i >= len(regexp)-1 {
-			nextState.accept = true
-		} else {
-			nextState.accept = false
-		}
+		nextState.accept = false
 
 		var transition Transition
 		transition.state = &nextState
@@ -88,6 +85,7 @@ func generateMachine(regexp string) State {
 
 	}
 
+	currentState.accept = true
 	return firstState
 }
 
