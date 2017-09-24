@@ -10,11 +10,6 @@ func main() {
 
 	evalToken(token)
 
-	var firstState = generateMachine("abc")
-	fmt.Println("---")
-	fmt.Println("firstState has value of accept: ", firstState.accept)
-	fmt.Println(firstState)
-
 }
 
 func evalToken(t Token) {
@@ -35,10 +30,8 @@ func evalToken(t Token) {
 func generateMachine(regexp string) State {
 
 	var regexpLength int = len([]rune(regexp))
-	var currentState State
-	currentState.accept = false
-
-	var addressOfFirstState = &currentState
+	var firstState State
+	var currentState *State = &firstState
 
 	for i := 0; i < regexpLength; i++ {
 
@@ -46,27 +39,23 @@ func generateMachine(regexp string) State {
 		token.typeOperator = "literal"
 		token.value = string(regexp[i])
 
-		var state State
+		var nextState State
 		if i >= regexpLength-1 {
-			state.accept = true
+			nextState.accept = true
 		} else {
-			state.accept = false
+			nextState.accept = false
 		}
 
 		var transition Transition
-		transition.state = &state
+		transition.state = &nextState
 		transition.token = token
 
-		var transitions = []*Transition{&transition}
-
-		currentState.transitions = transitions
-		currentState = state
+		currentState.transitions = []*Transition{&transition}
+		currentState = &nextState
 
 	}
 
-	fmt.Println(firstState.accept)
-
-	return *firstState
+	return firstState
 }
 
 type Token struct {
