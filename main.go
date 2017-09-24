@@ -10,6 +10,38 @@ func main() {
 
 	evalToken(token)
 
+	var regexp = "foo*ba?"
+
+	tokens := parseRegexp(regexp)
+
+	fmt.Println(tokens)
+
+}
+
+func parseRegexp(regexp string) []Token {
+
+	tokens := make([]Token, len(regexp))
+
+	for i, j := 0, 0; i < len(tokens); i, j = i+1, j+1 {
+
+		r := regexp[i]
+		c := fmt.Sprintf("%c", r)
+
+		switch c {
+		case "*":
+			tokens[j-1] = Token{typeOperator: "star", value: tokens[j-1].value}
+			j--
+		case ".":
+			tokens[j] = Token{typeOperator: "dot", value: "."}
+		case "?":
+			tokens[j-1] = Token{typeOperator: "questionmark", value: tokens[j-1].value}
+			j--
+		default:
+			tokens[j] = Token{typeOperator: "literal", value: c}
+		}
+
+	}
+	return tokens
 }
 
 func evalToken(t Token) {
@@ -28,19 +60,17 @@ func evalToken(t Token) {
 }
 
 func generateMachine(regexp string) State {
-
-	var regexpLength int = len([]rune(regexp))
 	var firstState State
 	var currentState *State = &firstState
 
-	for i := 0; i < regexpLength; i++ {
+	for i := 0; i < len(regexp); i++ {
 
 		var token Token
 		token.typeOperator = "literal"
 		token.value = string(regexp[i])
 
 		var nextState State
-		if i >= regexpLength-1 {
+		if i >= len(regexp)-1 {
 			nextState.accept = true
 		} else {
 			nextState.accept = false
