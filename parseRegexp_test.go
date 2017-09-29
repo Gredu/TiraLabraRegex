@@ -23,9 +23,9 @@ type testvalues struct {
 
 var tests = []testvalues{
 	{
-		parseRegexp("abc*defg"),
-		[]string{"a", "b", "c", "d", "e", "f", "g"},
-		[]string{"literal", "literal", "star", "literal", "literal", "literal", "literal"},
+		parseRegexp("abc*de"),
+		[]string{"a", "b", "c", "d", "e"},
+		[]string{"literal", "literal", "star", "literal", "literal"},
 	},
 	{
 		parseRegexp("abc"),
