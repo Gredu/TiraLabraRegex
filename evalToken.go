@@ -2,17 +2,23 @@ package main
 
 import "fmt"
 
-func evalToken(t Token) {
+func generateTransition(token Token, currentState *State) *State {
 
-	switch t.typeOperator {
+	switch token.typeOperator {
 	case "literal":
-		// TODO
+		nextState := State{accept: false}
+		transition := Transition{&nextState, token}
+
+		currentState.transitions = []*Transition{&transition}
+		currentState = &nextState
+
 	case "meta":
 		// TODO
-	case "repeater":
+	case "star":
 		// TODO
 	default:
 		fmt.Println("wrong type operator")
 	}
 
+	return currentState
 }
