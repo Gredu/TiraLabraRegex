@@ -19,7 +19,6 @@ func generateMachine(tokens []Token) State {
 		currentState = generateTransition(token, currentState, lastToken(tokens, i))
 	}
 
-	// currentState.accept = true
 	return firstState
 }
 
