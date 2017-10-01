@@ -42,7 +42,7 @@ func TestGenerateMachine(t *testing.T) {
 				t.Error("Expected 'literal' but got", currentState.transitions[0].token.typeOperator)
 			}
 			if len(currentState.transitions) != 2 {
-				t.Error("Length of transtitions expected to be 1, but got", len(currentState.transitions))
+				t.Error("Length of transtitions expected to be 2, but got", len(currentState.transitions))
 			}
 		} else {
 			if currentState.transitions[0].token.typeOperator != "literal" {
