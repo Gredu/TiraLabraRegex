@@ -10,9 +10,10 @@ func match(input string, currentState State) bool {
 			if input[0:1] == transition.token.value {
 				if len(input) == 1 && transition.state.accept {
 					accepted = true
-					return accepted
+				} else {
+					accepted = false
 				}
-				match(input[1:], *transition.state)
+				return match(input[1:], *transition.state)
 			}
 		}
 	}
