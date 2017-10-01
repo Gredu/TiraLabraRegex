@@ -26,4 +26,31 @@ func TestGenerateMachine(t *testing.T) {
 
 		currentState = *currentState.transitions[0].state
 	}
+
+	currentState = generateMachine(parseRegexp("ab*c"))
+	expectedValues = []string{"a", "b"}
+
+	for i := 0; i < 2; i++ {
+		if currentState.accept {
+			t.Error("Expected", false, "but got", currentState.accept)
+		}
+		if currentState.transitions[0].token.value != expectedValues[i] {
+			t.Error("Expected", expectedValues[i], "but got", currentState.transitions[0].token.value)
+		}
+		if i == 1 {
+			if currentState.transitions[0].token.typeOperator != "star" {
+				t.Error("Expected 'literal' but got", currentState.transitions[0].token.typeOperator)
+			}
+			if len(currentState.transitions) != 2 {
+				t.Error("Length of transtitions expected to be 1, but got", len(currentState.transitions))
+			}
+		} else {
+			if currentState.transitions[0].token.typeOperator != "literal" {
+				t.Error("Expected literal but got", currentState.transitions[0].token.typeOperator)
+			}
+		}
+
+		currentState = *currentState.transitions[0].state
+	}
+
 }
