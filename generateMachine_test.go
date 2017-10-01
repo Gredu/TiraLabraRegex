@@ -9,8 +9,8 @@ func TestGenerateMachine(t *testing.T) {
 
 	for i := 0; i < 3; i++ {
 		if i == 2 {
-			if !currentState.accept {
-				// t.Error("Expected last state's accept to be true, but got", currentState.accept)
+			if !currentState.transitions[0].state.accept {
+				t.Error("Expected last state's accept to be true, but got", currentState.accept)
 			} else {
 				if currentState.accept {
 					t.Error("Expected", false, "but got", currentState.accept)
