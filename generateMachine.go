@@ -21,13 +21,15 @@ func generateTransition(token Token, currentState *State) *State {
 		nextState := State{accept: false}
 		transition := Transition{&nextState, token}
 
-		currentState.transitions = []*Transition{&transition}
+		currentState.transitions = append(currentState.transitions, &transition)
 		currentState = &nextState
 
 	case "meta":
 		// TODO
 	case "star":
-		// TODO
+		transition := Transition{currentState, token}
+		currentState.transitions = append(currentState.transitions, &transition)
+
 	default:
 		fmt.Println("wrong type operator")
 	}
