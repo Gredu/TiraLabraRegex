@@ -1,26 +1,36 @@
 package main
 
+import "fmt"
+
 func generateMachine(tokens []Token) State {
 	var firstState State
 	var currentState *State = &firstState
 
 	for _, token := range tokens {
-		// var nextState State
-		// nextState.accept = false
 		currentState = generateTransition(token, currentState)
-
-		// var nextState State
-		// nextState.accept = false
-		//
-		// var transition Transition
-		// transition.state = &nextState
-		// transition.token = token
-		//
-		// currentState.transitions = []*Transition{&transition}
-		// currentState = &nextState
-
 	}
 
 	currentState.accept = true
 	return firstState
+}
+
+func generateTransition(token Token, currentState *State) *State {
+
+	switch token.typeOperator {
+	case "literal":
+		nextState := State{accept: false}
+		transition := Transition{&nextState, token}
+
+		currentState.transitions = []*Transition{&transition}
+		currentState = &nextState
+
+	case "meta":
+		// TODO
+	case "star":
+		// TODO
+	default:
+		fmt.Println("wrong type operator")
+	}
+
+	return currentState
 }
