@@ -1,7 +1,5 @@
 package main
 
-var accepted bool = false
-
 func match(input string, currentState State) bool {
 
 	if len(input) == 0 && len(currentState.transitions) == 0 {
