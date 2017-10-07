@@ -4,25 +4,17 @@ import "fmt"
 
 func generateMachine(tokens []Token) State {
 
-	lastToken := func(tokens []Token, i int) bool {
-		if len(tokens) == i+1 {
-			return true
-		} else {
-			return false
-		}
-	}
-
 	var firstState State
 	var currentState *State = &firstState
 
-	for i, token := range tokens {
-		currentState = generateTransition(token, currentState, lastToken(tokens, i))
+	for _, token := range tokens {
+		currentState = generateTransition(token, currentState)
 	}
 
 	return firstState
 }
 
-func generateTransition(token Token, currentState *State, last bool) *State {
+func generateTransition(token Token, currentState *State) *State {
 
 	switch token.typeOperator {
 	case "literal":
