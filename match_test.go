@@ -16,6 +16,11 @@ func TestMatch(t *testing.T) {
 			[]string{"", "a", "ab", "abc", "abcd"},
 			[]bool{false, false, false, true, false},
 		},
+		{
+			"ab*c",
+			[]string{"", "a", "ab", "abc", "abcd", "bbc", "abbbbc", "abbb", "ab"},
+			[]bool{false, false, false, true, false, false, true, false, false},
+		},
 	}
 
 	for _, test := range tests {
@@ -23,9 +28,9 @@ func TestMatch(t *testing.T) {
 		for i, _ := range test.inputs {
 			if match(test.inputs[i], machine) != test.expectedValues[i] {
 				if test.expectedValues[i] {
-					t.Error("Word", test.inputs[i], "should not match")
+					t.Error("Word", test.inputs[i], "should match match with regexp", test.regexp)
 				} else {
-					t.Error("Word", test.inputs[i], "should match")
+					t.Error("Word", test.inputs[i], "should not match with regexp", test.regexp)
 				}
 			}
 		}
