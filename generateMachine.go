@@ -26,11 +26,10 @@ func generateTransition(token Token, currentState *State, last bool) *State {
 
 	switch token.typeOperator {
 	case "literal":
-		nextState := State{accept: last}
-		transition := Transition{&nextState, token}
+		transition := Transition{&State{accept: last}, token}
 
 		currentState.transitions = append(currentState.transitions, &transition)
-		currentState = &nextState
+		currentState = transition.state
 
 	case "meta":
 		// nextState := State{accept: last}
