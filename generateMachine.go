@@ -33,7 +33,13 @@ func generateTransition(token Token, currentState *State, last bool) *State {
 		currentState = &nextState
 
 	case "meta":
-		// TODO
+		// nextState := State{accept: last}
+		transition := Transition{&State{accept: last}, token}
+
+		currentState.transitions = append(currentState.transitions, &transition)
+		currentState = transition.state
+		// currentState = &nextState
+
 	case "star":
 		transition := Transition{currentState, token}
 		currentState.accept = last
