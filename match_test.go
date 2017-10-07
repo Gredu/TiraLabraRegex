@@ -4,22 +4,31 @@ import "testing"
 
 func TestMatch(t *testing.T) {
 
-	machine := generateMachine(parseRegexp("abc"))
+	type testValues struct {
+		regexp         string
+		inputs         []string
+		expectedValues []bool
+	}
 
-	if match("", machine) {
-		t.Error("Word '' should not match, but it did")
+	var tests = []testValues{
+		{
+			"abc",
+			[]string{"", "a", "ab", "abc", "abcd"},
+			[]bool{false, false, false, true, false},
+		},
 	}
-	if match("a", machine) {
-		t.Error("Word 'a' should not match, but it did")
-	}
-	if match("ab", machine) {
-		t.Error("Word 'ab' should not match, but it did")
-	}
-	if !match("abc", machine) {
-		t.Error("Word 'abc' should match, but did not")
-	}
-	if match("abcd", machine) {
-		t.Error("Word 'abcd' should not match, but it did")
+
+	for _, test := range tests {
+		machine := generateMachine(parseRegexp(test.regexp))
+		for i, _ := range test.inputs {
+			if match(test.inputs[i], machine) != test.expectedValues[i] {
+				if test.expectedValues[i] {
+					t.Error("Word", test.inputs[i], "should not match")
+				} else {
+					t.Error("Word", test.inputs[i], "should match")
+				}
+			}
+		}
 	}
 
 }
