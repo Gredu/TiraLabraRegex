@@ -18,8 +18,18 @@ func TestMatch(t *testing.T) {
 		},
 		{
 			"ab*c",
+			[]string{"", "a", "ab", "abc", "abcd", "bbc", "abbbbc", "abbb", "ab", "ac"},
+			[]bool{false, false, false, true, false, false, true, false, false, true},
+		},
+		{
+			"ab*cd*e",
 			[]string{"", "a", "ab", "abc", "abcd", "bbc", "abbbbc", "abbb", "ab"},
-			[]bool{false, false, false, true, false, false, true, false, false},
+			[]bool{false, false, false, false, false, false, false, false, false},
+		},
+		{
+			"ab*cd*e",
+			[]string{"abcde", "ace", "abbbbbbcdddddde", "acdddde", "abbbbbce", "abbbbbbc"},
+			[]bool{true, true, true, true, true, false},
 		},
 	}
 
