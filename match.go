@@ -15,6 +15,8 @@ func match(input string, currentState State) bool {
 				if input[0:1] == transition.token.value {
 					return match(input[1:], *transition.state)
 				}
+			case "dot":
+				return match(input[1:], *transition.state)
 			case "meta":
 				switch transition.token.value {
 				case "d":

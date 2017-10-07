@@ -17,7 +17,7 @@ func generateMachine(tokens []Token) State {
 func generateTransition(token Token, currentState *State) *State {
 
 	switch token.typeOperator {
-	case "literal", "meta":
+	case "literal", "meta", "dot":
 		transition := Transition{&State{}, token}
 
 		currentState.transitions = append(currentState.transitions, &transition)
