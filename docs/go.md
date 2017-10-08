@@ -78,7 +78,7 @@ src
 
 ```
 
-Tämä projekti sisältää kansiossa github.com/Gredu/TiraLabraRegex . Asennuksesta tulevan binäärin nimi on on TiraLabraRegex.
+Tämä projekti sisältää kansiossa github.com/Gredu/TiraLabraRegex . Asennuksesta tulevan binäärin nimi on TiraLabraRegex.
 
 Lähteet:
   - [go-tiedostorakenne](https://golang.org/doc/code.html)
