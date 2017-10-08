@@ -34,7 +34,7 @@ Kahdessa edellisessä esimerkissä tarvittiin tiedostoa `coverage.out`. Tämä t
 go test -coverprofile=coverage.out
 ```
 
-Komento tuskin on käyttäjälle hyödyllinen, koska jokaisen github-päivityksen yhteydessä tämä tiedosto päivitetään kuitenkin. Jos omia testejä lisää tai poistaa, kannattaa tämä kuitenkin päivittää.
+Komento tuskin on käyttäjälle hyödyllinen, koska jokaisen github-päivityksen yhteydessä tämä tiedosto päivitetään ohjelmoijan toimesta kuitenkin. Jos omia testejä lisää tai poistaa, kannattaa se kuitenkin päivittää. Huomaa, että `coverage.out` on testitiedosto, joka siis sisältää testi-tulokset. Sen avaaminen `go tool cover` työkalulla ei itsestään käynnistä minkäänlaisia testejä.
 
 On myös mahdollista saada testikattavuus lämpökarttana (eng. heat map), jolloin nähdään, kuinka hyvin tietyt osat lähdekoodista on testattu. Tiedosto `coverage.out` on kuitenkin päivitettävä lisäämällä `-covermode=count`:
 
