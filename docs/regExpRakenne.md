@@ -29,4 +29,4 @@ Ilmaisevat miten monta kertaa edellistä ilmaisua toistetaan.
   - `?` toistetaan kerran tai ei yhtään
   - `{k}` toistetaan k-verran
 
-Esimerkiksi edellinen esimerkki olisi voitu kirjoittaa muotoon `\\d{2}-\\{2}-\\d{4}` ja hyväksyy samat sanat.
+Esimerkiksi edellinen esimerkki olisi voitu kirjoittaa muotoon `\d{2}-\{2}-\d{4}` ja hyväksyy samat sanat.
