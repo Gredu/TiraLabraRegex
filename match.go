@@ -2,7 +2,7 @@ package main
 
 func match(input string, currentState State) bool {
 
-	if len(input) == 0 && len(currentState.transitions) == 0 {
+	if len(input) == 0 && currentState.accept {
 		return true
 	} else if len(input) > 0 && len(currentState.transitions) > 0 {
 		for _, transition := range currentState.transitions {

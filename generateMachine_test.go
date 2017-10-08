@@ -31,9 +31,9 @@ func TestGenerateMachine(t *testing.T) {
 	expectedValues = []string{"a", "b"}
 
 	for i := 0; i < 2; i++ {
-		// if currentState.accept {
-		// 	t.Error("Expected", false, "but got", currentState.accept)
-		// }
+		if currentState.accept {
+			t.Error("Expected", false, "but got", currentState.accept)
+		}
 		if currentState.transitions[0].token.value != expectedValues[i] {
 			t.Error("Expected", expectedValues[i], "but got", currentState.transitions[0].token.value)
 		}
@@ -41,8 +41,14 @@ func TestGenerateMachine(t *testing.T) {
 			if currentState.transitions[0].token.typeOperator != "star" {
 				t.Error("Expected 'literal' but got", currentState.transitions[0].token.typeOperator)
 			}
+			if currentState.accept {
+				t.Error("Expected state accept value to be false , but got", currentState.accept)
+			}
 			if len(currentState.transitions) != 2 {
-				t.Error("Length of transtitions expected to be 2, but got", len(currentState.transitions))
+				t.Error("Expected length of transitions to be 2, but got", len(currentState.transitions))
+			}
+			if !currentState.transitions[1].state.accept {
+				t.Error("Expected state accept value to be true, but got", currentState.transitions[1].state.accept)
 			}
 		} else {
 			if currentState.transitions[0].token.typeOperator != "literal" {
