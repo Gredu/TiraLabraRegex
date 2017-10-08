@@ -22,9 +22,11 @@ func generateTransition(token Token, currentState *State) *State {
 
 		currentState.transitions = append(currentState.transitions, &transition)
 		currentState = transition.state
+		// currentState = &nextState
 
 	case "star":
 		transition := Transition{currentState, token}
+		// currentState.accept = last
 		currentState.transitions = append(currentState.transitions, &transition)
 
 	case "plus":
