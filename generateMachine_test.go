@@ -41,4 +41,37 @@ func TestGenerateMachine(t *testing.T) {
 		currentState = *currentState.transitions[0].state
 	}
 
+	currentState = generateMachine(parseRegexp("ab+c"))
+	if currentState.transitions[0].token.value != "a" {
+		t.Error("Expected token value to be a, but got", currentState.transitions[0].token.value)
+	}
+
+	currentState = *currentState.transitions[0].state
+	if currentState.transitions[0].token.value != "b" {
+		t.Error("Expected token value to be b, but got", currentState.transitions[0].token.value)
+	}
+	if currentState.transitions[0].token.typeOperator != "literal" {
+		t.Error("Expected typeOperator value to be 'literal', but got", currentState.transitions[0].token.typeOperator)
+	}
+	if len(currentState.transitions) != 1 {
+		t.Error("Expected length of transitions to be 1, but got", len(currentState.transitions))
+	}
+
+	currentState = *currentState.transitions[0].state
+	if len(currentState.transitions) != 2 {
+		t.Error("Expected length of transitions to be 2, but got", len(currentState.transitions))
+	}
+	if currentState.transitions[0].token.value != "b" {
+		t.Error("Expected token value to be b, but got", currentState.transitions[0].token.value)
+	}
+	if currentState.transitions[0].token.typeOperator != "star" {
+		t.Error("Expected token value to be 'star', but got", currentState.transitions[0].token.typeOperator)
+	}
+	if currentState.transitions[1].token.value != "c" {
+		t.Error("Expected token value to be c, but got", currentState.transitions[1].token.value)
+	}
+	if currentState.transitions[1].token.typeOperator != "literal" {
+		t.Error("Expected token value to be 'star', but got", currentState.transitions[1].token.typeOperator)
+	}
+
 }

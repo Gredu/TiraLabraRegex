@@ -66,6 +66,11 @@ func TestMatch(t *testing.T) {
 			[]string{"a", "b", "", "4", "55"},
 			[]bool{true, true, false, true, false},
 		},
+		{
+			"ab+c",
+			[]string{"abc", "abbbc", "ab"},
+			[]bool{true, true, false},
+		},
 	}
 
 	for _, test := range tests {
