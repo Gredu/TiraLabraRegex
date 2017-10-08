@@ -1,8 +1,11 @@
-# Testaus
+# Testaaminen
 
 Muista asentaa Go ennen koodin testausta!
 
-Testauksessa ja testikattavuudessa käytetään Go:n omaa testijärjestelmään. Kaikki komennot on annettava projektin juurella.
+Testauksessa, testikattavuudessa ja suorituskykytestauksessa käytetään Go:n omaa testijärjestelmään. Kaikki komennot on annettava projektin juurella.
+
+
+# Testaus
 
 Testin suorittaminen:
 
@@ -50,5 +53,7 @@ Tämän jälkeen tiedosto avataan HTML-versiona samalla tavalla kuin aikaisemmin
 Suorituskykytestaus käynnistetään komennolla:
 
 ```sh
-go test -bench=
+go test -bench=.
 ```
+
+Go suorittaa suorituskykytestauksen oletuksena niin monta kertaa, että keskiarvo on "tarpeeksi" tarkka. Suoritusten kerta tulostetaan lopputuloksessa.
