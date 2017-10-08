@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -115,7 +114,7 @@ func BenchmarkMatchStars(b *testing.B) {
 	for _, test := range tests {
 		machine := generateMachine(parseRegexp(test.regexp))
 		for i, _ := range test.inputs {
-			fmt.Println(match(test.inputs[i], machine))
+			match(test.inputs[i], machine)
 		}
 	}
 
