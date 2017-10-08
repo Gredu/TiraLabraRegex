@@ -12,13 +12,13 @@ Literaaleja voi yhdistää, jolloin haku pitää sisältää kirjaimet kokonaan 
 
 ## Metat
 
-Meta on ehto, mitä yhtä kirjainta ilmaus hyväksyy. Kenoviiva `\\` ilmaisee alkavan metatyypin. Listaus eri metoista:
-  - `\\d` tarkoittaa mitä tahansa numeroa
-  - `\\w` tarkoittaa mitä tahansa kirjainta tai numeroa
-  - `\\s` tarkoittaa välilyöntiä
+Meta on ehto, mitä yhtä kirjainta ilmaus hyväksyy. Kenoviiva `\` ilmaisee alkavan metatyypin. Listaus eri metoista:
+  - `\d` tarkoittaa mitä tahansa numeroa
+  - `\w` tarkoittaa mitä tahansa kirjainta tai numeroa
+  - `\s` tarkoittaa välilyöntiä
   - `.` mitä tahansa kirjain
 
-Esimerkiksi `\\d\\d-\\d\\d-\\d\\d\\d\\d` hyväksyy sanat `20-09-1985` ja `01-01-2000`. Huomaa, että esimerkissä on käytetty literaaleja.
+Esimerkiksi `\d\d-\d\d-\d\d\d\d` hyväksyy sanat `20-09-1985` ja `01-01-2000`. Huomaa, että esimerkissä on käytetty literaaleja.
 
 
 ## Määrät
