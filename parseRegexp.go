@@ -23,6 +23,10 @@ func parseRegexp(regexp string) []Token {
 			tokens[j-1] = Token{typeOperator: "questionmark", value: tokens[j-1].value}
 			j--
 			sliceRight++
+		case "+":
+			tokens[j-1] = Token{typeOperator: "plus", value: tokens[j-1].value}
+			j--
+			sliceRight++
 		case "\\":
 			tokens[j] = Token{typeOperator: "meta", value: fmt.Sprintf("%c", regexp[i+1])}
 			i++
