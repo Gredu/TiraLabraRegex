@@ -6,6 +6,7 @@ Erilaisia syntakseja säännöllisille lausekkeille on paljon. Eri ohjelmointiki
 
 Harjoitustyö tehdään Go kielellä. Tulkki pyritään rakentamaan Laskennan mallin kursista tutuilla äärellisillä laskentalaitteilla, eli niitä pyritään simuloimaan. Tällöin erilaisten säännöllisten kielten yksittäisiä ilmauksia voidaan yhdistää samalla tavalla kuin laskentalaitteita. Koodin O-vaatimusluokka on siten samaa tasoa kuin epädeterministisellä äärellisellä laskentalaitteella. Syöte luetaan vain yhden kerran vasemmalta oikealla.
 
+  - [Go](docs/go.md)
   - [Säännölliset lausekkeet](docs/regExpRakenne.md)
   - [Toteutus](docs/toteutus.md)
   - [Testaus](docs/testaus.md)
