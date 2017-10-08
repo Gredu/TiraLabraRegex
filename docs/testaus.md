@@ -43,3 +43,12 @@ go test -covermode=count -coverprofile=coverage.out
 ```
 
 Tämän jälkeen tiedosto avataan HTML-versiona samalla tavalla kuin aikaisemmin jo nähtiin.
+
+
+## Suorituskykytestaus
+
+Suorituskykytestaus käynnistetään komennolla:
+
+```sh
+go test -bench=
+```
