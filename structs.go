@@ -7,6 +7,7 @@ type Token struct {
 
 type State struct {
 	transitions []*Transition
+	accept      bool
 }
 
 type Transition struct {
