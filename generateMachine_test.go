@@ -41,20 +41,6 @@ func TestGenerateMachine(t *testing.T) {
 		t.Error("Expected length of transitions to be 2, but got", len(currentState.transitions), ", transitions are", currentState.transitions)
 	}
 
-	// t.Error(currentState.transitions[0])
-	// t.Error(currentState.transitions[0].token)
-	// t.Error(*currentState.transitions[0].token.token)
-	// t.Error(*currentState.transitions[0].token.token.token)
-	// t.Error(currentState.transitions[1])
-
-	// if !currentState.transitions[1].state.accept {
-	// 	t.Error("Expected state accept value to be true, but got", currentState.transitions[1].state.accept)
-	// }
-
-	// if currentState.transitions[0].token.typeOperator != "literal" {
-	// 	t.Error("Expected literal but got", currentState.transitions[0].token.typeOperator)
-	// }
-
 	currentState = *currentState.transitions[0].state
 
 	currentState = generateMachine(parseRegexp("ab+c"))
