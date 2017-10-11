@@ -29,7 +29,6 @@ func main() {
 
 func matchLine(path string, machine State) {
 	inFile, _ := os.Open(path)
-	defer inFile.Close()
 	scanner := bufio.NewScanner(inFile)
 	scanner.Split(bufio.ScanLines)
 
@@ -37,5 +36,10 @@ func matchLine(path string, machine State) {
 		if match(scanner.Text(), machine) {
 			fmt.Println(scanner.Text())
 		}
+	}
+
+	err := inFile.Close()
+	if err != nil {
+		fmt.Println(err)
 	}
 }
