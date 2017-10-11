@@ -14,7 +14,8 @@ func parseRegexp(regexp string) []Token {
 
 		switch c {
 		case "*":
-			tokens[j-1] = Token{typeOperator: "star", value: tokens[j-1].value}
+			token := tokens[j-1]
+			tokens[j-1] = Token{"star", "", &token}
 			j--
 			sliceRight++
 		case ".":

@@ -3,6 +3,7 @@ package main
 type Token struct {
 	typeOperator string
 	value        string
+	token        *Token
 }
 
 type State struct {

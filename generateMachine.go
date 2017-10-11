@@ -32,17 +32,18 @@ func generateTransition(token Token, currentState *State, last bool) *State {
 		currentState = transition.state
 
 	case "star":
-		transition := Transition{currentState, token}
+		s := Token{"star", token.token.value, nil}
+		transition := Transition{currentState, s}
 		currentState.accept = last
 		currentState.transitions = append(currentState.transitions, &transition)
 
 	case "plus":
 
-		nextTransition := Transition{&State{}, Token{"literal", token.value}}
+		nextTransition := Transition{&State{}, Token{"literal", token.value, nil}}
 		currentState.transitions = append(currentState.transitions, &nextTransition)
 		currentState = nextTransition.state
 
-		lastTransition := Transition{currentState, Token{"star", token.value}}
+		lastTransition := Transition{currentState, Token{"star", token.value, nil}}
 		currentState.transitions = append(currentState.transitions, &lastTransition)
 
 	default:
