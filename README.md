@@ -18,3 +18,4 @@ Harjoitustyö tehdään Go kielellä. Tulkki pyritään rakentamaan Laskennan ma
   - [Viikko 3](docs/reports/week3.md)
   - [Viikko 4](docs/reports/week4.md)
   - [Viikko 5](docs/reports/week5.md)
+  - [Viikko 6](docs/reports/week6.md)
