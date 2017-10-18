@@ -3,6 +3,43 @@
 Go-kielellä on muutamia erikoisuuksia, jotka saattavat hämmentää Java-kirjoittajaa. Tämän artikkelin tarkoitus on avittaa muita pääsemään helpommin ja nopeammin sinuiksi Go:hon, jotta itse arvointi ja koodinkatselmus olisi helpompaa.
 
 
+## Go:n asentaminen
+
+Jos käyttöjärjestelmäsi on Linux voit todennäköisesti asentaa Go:n pakettihallintajärjestelmän kautta. Katso ohjeet kuinka asennus tapahtuu omassa linux-ympäristössäsi. MacOS käyttäjien kannattanee asentaa Go [homebrewin](https://brew.sh/) kautta.
+
+Muille käyttöjärjestelmille tai manuaalisesta asennuksesta kiinnostuneille kannatta katsoa [Go:n omista dokumenteista](https://golang.org/doc/install).
+
+
+### GOPATH muuttujan asettaminen
+
+Ympäristömuuttuja `GOPATH` kertoo minne Go asentaa ohjelmansa ja riippuvuutensa. Itselläni `GOPATH` on asetettu `.zshrc` tiedostossa kotikansiossa. `.bashrc` on myös toinen paikka, minne kannattanee asettaa muuttuja, jos shell on bash (jos järjestelmään ei ole tehty mitään muutoksia, on shellinä todennäköisesti bash). Seuraava koodirivi asettaa `GOPATH` muuttujan:
+
+```sh
+export GOPATH="${HOME}/Code/go"
+```
+
+Jotta Go:n binäärit voisia ajaa helposti, kannattaa laittaa viimeiseksi koodiriviksi seuraava:
+
+```sh
+export PATH="$PATH:${GOPATH}/bin"
+```
+
+
+## TiraLabraRegex ohjelman asentaminen ja käyttö
+
+Kun Go on asennettuna, voidaan TiraLabraRegex asentaa seuraavasti:
+
+```sh
+go get -v github.com/Gredu/TiraLabraRegex
+```
+
+Käyttäminen tapahtuu siten, että ensimmäisenä parametrina on tiedosto, joka sisältää sanoja. Toinen parametri (stringinä) on säännöllinen lauseke, johon tiedoston sanat käydään läpi. Jos sana sopii säännölliseen lausekkeeseen, se tulostetaan. Esimerkiksi:
+
+```sh
+TiraLabraRegex data/inputs "jaava"
+```
+
+
 ## Tiedostorakenne
 
 Muista kielistä on tuttu nimitys "workspace" (suom. työalue), jolla tarkoitetaan työaluetta, joka käytännössä sisältää kaiken, mitä yhdessä projektissa on. Työalue sisältää yleensä mm. kansion binääreille, paketeille ja lähdekoodeille. Erikseen saattaa olla myös projektiin liittyvät konfiguraatio tiedostot ja kansio testeille.
