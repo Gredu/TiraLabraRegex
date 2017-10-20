@@ -45,4 +45,21 @@ func TestParseRegexp(t *testing.T) {
 		t.Error("Expected length of tokens to be 3 in regexp 'ab*c', but got", len(tokens))
 	}
 
+	tokens = parseRegexp("ab?c")
+	if len(tokens) != 3 {
+		t.Error("Expected length of tokens to be 3 in regexp 'ab?c', but got", len(tokens))
+	}
+	if tokens[0].value != "a" {
+		t.Error("Expected value of first token value should be a, but is", tokens[0].value)
+	}
+	if tokens[1].value != "b" {
+		t.Error("Expected value of second token value should be a, but is", tokens[1].value)
+	}
+	if tokens[1].typeOperator != "questionmark" {
+		t.Error("Expected value of second token typeOperator should be a, but is", tokens[1].value)
+	}
+	if tokens[2].value != "c" {
+		t.Error("Expected value of third token value should be a, but is", tokens[2].value)
+	}
+
 }
