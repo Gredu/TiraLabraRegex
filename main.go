@@ -18,7 +18,7 @@ func main() {
 
 		machine := generateMachine(parseRegexp(regexp))
 
-		matchLine(inputs, machine)
+		matchLine(inputs, machine, true)
 
 	} else {
 		// TODO
@@ -27,13 +27,13 @@ func main() {
 
 }
 
-func matchLine(path string, machine State) {
+func matchLine(path string, machine State, verbose bool) {
 	inFile, _ := os.Open(path)
 	scanner := bufio.NewScanner(inFile)
 	scanner.Split(bufio.ScanLines)
 
 	for scanner.Scan() {
-		if match(scanner.Text(), machine) {
+		if match(scanner.Text(), machine) && verbose {
 			fmt.Println(scanner.Text())
 		}
 	}
