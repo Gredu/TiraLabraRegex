@@ -26,10 +26,16 @@ func generateTransition(token Token, currentState *State, last bool) *State {
 
 	switch token.typeOperator {
 	case "literal", "meta", "dot":
-		transition := Transition{&State{accept: last}, token}
+		if len(currentState.transitions) > 0 && currentState.transitions[0].token.typeOperator == "questionmark" {
+			transition := Transition{&State{accept: last}, token}
 
-		currentState.transitions = append(currentState.transitions, &transition)
-		currentState = transition.state
+			currentState.transitions[0].state.transitions = append(currentState.transitions[0].state.transitions, &transition)
+			currentState.transitions = append(currentState.transitions, &transition)
+		} else {
+			transition := Transition{&State{accept: last}, token}
+			currentState.transitions = append(currentState.transitions, &transition)
+			currentState = transition.state
+		}
 
 	case "star":
 		s := Token{"star", token.token.value, nil}
@@ -45,6 +51,11 @@ func generateTransition(token Token, currentState *State, last bool) *State {
 
 		lastTransition := Transition{currentState, Token{"star", token.value, nil}}
 		currentState.transitions = append(currentState.transitions, &lastTransition)
+
+	case "questionmark":
+
+		transition := Transition{&State{accept: last}, token}
+		currentState.transitions = append(currentState.transitions, &transition)
 
 	default:
 		fmt.Println("wrong type operator")
