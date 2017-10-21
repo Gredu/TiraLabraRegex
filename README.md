@@ -10,6 +10,7 @@ Harjoitustyö tehdään Go kielellä. Tulkki pyritään rakentamaan Laskennan ma
   - [Säännölliset lausekkeet](docs/regExpRakenne.md)
   - [Toteutus](docs/toteutus.md)
   - [Testaus](docs/testaus.md)
+  - [Suorituskykytestaus](docs/suorituskyky.md)
 
 
 ## Viikkoraportit
@@ -19,3 +20,4 @@ Harjoitustyö tehdään Go kielellä. Tulkki pyritään rakentamaan Laskennan ma
   - [Viikko 4](docs/reports/week4.md)
   - [Viikko 5](docs/reports/week5.md)
   - [Viikko 6](docs/reports/week6.md)
+  - [Palautus](docs/reports/palautus.md)
