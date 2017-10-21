@@ -2,10 +2,10 @@
 
 Muista asentaa Go ennen koodin testausta!
 
-Testauksessa, testikattavuudessa ja suorituskykytestauksessa käytetään Go:n omaa testijärjestelmään. Kaikki komennot on annettava projektin juurella.
+Testauksessa, testikattavuudessa ja suorituskykytestauksessa käytetään Go:n omaa testijärjestelmään. Kaikki komennot on annettava projektin juurella. [Suorituskykymittaus löytyy muualta](docs/suorituskyky.md).
 
 
-# Testaus
+## Testaus
 
 Testin suorittaminen:
 
@@ -46,14 +46,3 @@ go test -covermode=count -coverprofile=coverage.out
 ```
 
 Tämän jälkeen tiedosto avataan HTML-versiona samalla tavalla kuin aikaisemmin jo nähtiin.
-
-
-## Suorituskykytestaus
-
-Suorituskykytestaus käynnistetään komennolla:
-
-```sh
-go test -bench=.
-```
-
-Go suorittaa suorituskykytestauksen oletuksena niin monta kertaa, että keskiarvo on "tarpeeksi" tarkka. Suoritusten kerta tulostetaan lopputuloksessa.
