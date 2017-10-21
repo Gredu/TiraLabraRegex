@@ -46,6 +46,18 @@ Nopeus on yllättänyt jopa sen verran, että tulokset vaikuttavat epäilyttävi
 Ihmetyttää myös Go:n kyky suorittaa funktio kaksi miljardia kertaa hyvin nopeasti.
 
 
+## Mahdolliset lisätoimet
+
+On selkeää, että tiedostot voivat olla suuruudestaan huolimatta edelleenkin liian pieniä. Suorituskykytestaus ei antanut aina samankaltaisia tuloksia. Välillä isommat tiedostot suoritettiin nopeammin kuin pienemmät, mutta pääosin tulokset olivat kuten tässä artikkelissa on näytetty. Pienet tiedostot siis suoritettiin nopeammin kuin isot tiedostot useimmissa tapauksissa. Virhe todennäköisesti johtuu vain siitä, että testiä suorittava tietokone teki juuri silloin työtä myös jossain muualla.
+
+Isommat tiedostot saattaisivat poistaa tämän mahdollisen virhemarginaalin, mutta jo näillä tiedostoilla pystytään tehdä melko varmoja päättelyjä.
+
+
+## Testitiedostot
+
+Testitiedostojen dataa ei laiteta githubiin, koska ne vievät jonkin verran tilaa. Testitiedostot on kyllä saatavilta muualta (laitetaan linkki myöhemmin?)
+
+
 ## Lähteet
 
 https://golang.org/pkg/testing/
