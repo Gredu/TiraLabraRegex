@@ -74,7 +74,7 @@ Funktiot main ja matchLine eivät ole testattuja sen takia, että ne sisältäv�
 
 ## Testien toteutus
 
-Ohjelma koostuu kolmesta funktiosta, `parseRegexp()`, `generateMachine()` ja `match()`. Funktiota `generateMachine()` on tukemassa funktio `generateTransition()`. Koska funktiot toimivat erittäin lähekkäin, on ne päätetty sijoittaa samaan tiedostoon. Samalla tavalla myös `isDigit()` on funktion `match()` tukena.
+Ohjelma koostuu kolmesta funktiosta, `parseRegexp()`, `generateMachine()` ja `match()`. Funktiota `generateMachine()` on tukemassa funktio `generateTransition()`. Koska funktiot toimivat erittäin lähekkäin, on ne päätetty sijoittaa samaan tiedostoon. Samalla tavalla myös `isDigit()` on funktion `match()` tukena ja samassa tiedostossa.
 
 Projektista löytyy kolme testitiedostoa, jotka on nimetty pääfunktioiden mukaan. Esimerkiksi `generateMachine_test.go`. Tiedosto sisältää myös testin sitä tukevalle apufunktiolle `generateTransition()`.
 
