@@ -1,5 +1,7 @@
 package main
 
+// match checks if input passes the automata.
+// It returns true if input passes the automata.
 func match(input string, currentState State) bool {
 
 	if len(input) == 0 && currentState.accept {
@@ -31,6 +33,8 @@ func match(input string, currentState State) bool {
 	return false
 }
 
+// isDigit checks if string is number.
+// It returns true if string is number.
 func isDigit(input string) bool {
 	switch input {
 	case "1", "2", "3", "4", "5", "6", "7", "8", "9", "0":
