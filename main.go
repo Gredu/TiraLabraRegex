@@ -27,6 +27,7 @@ func main() {
 
 }
 
+// matchLine check each line of a file and checks if regular expression match on that line using match() function.
 func matchLine(path string, machine State, verbose bool) {
 	inFile, _ := os.Open(path)
 	scanner := bufio.NewScanner(inFile)

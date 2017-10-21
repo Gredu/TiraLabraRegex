@@ -1,5 +1,7 @@
 package main
 
+// generateMachine generates automata.
+// It returns State which is the first State of the automata.
 func generateMachine(tokens []Token) State {
 
 	lastToken := func(tokens []Token, i int) bool {
@@ -20,6 +22,8 @@ func generateMachine(tokens []Token) State {
 	return firstState
 }
 
+// generateTransition generates transitions for states.
+// It returns a reference to the state which is also the 'current state'
 func generateTransition(token Token, currentState *State, last bool) *State {
 
 	switch token.typeOperator {
@@ -42,7 +46,6 @@ func generateTransition(token Token, currentState *State, last bool) *State {
 		currentState.transitions = append(currentState.transitions, &transition)
 
 	case "plus":
-
 		nextTransition := Transition{&State{}, Token{"literal", token.value, nil}}
 		currentState.transitions = append(currentState.transitions, &nextTransition)
 		currentState = nextTransition.state
@@ -51,7 +54,6 @@ func generateTransition(token Token, currentState *State, last bool) *State {
 		currentState.transitions = append(currentState.transitions, &lastTransition)
 
 	case "questionmark":
-
 		transition := Transition{&State{accept: last}, token}
 		currentState.transitions = append(currentState.transitions, &transition)
 

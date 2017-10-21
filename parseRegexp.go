@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// parseRegexp parses the regular expression.
+// It returns a slice of Tokens.
 func parseRegexp(regexp string) []Token {
 
 	tokens := make([]Token, len(regexp))
