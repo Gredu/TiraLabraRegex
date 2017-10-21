@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func generateMachine(tokens []Token) State {
 
 	lastToken := func(tokens []Token, i int) bool {
@@ -57,8 +55,6 @@ func generateTransition(token Token, currentState *State, last bool) *State {
 		transition := Transition{&State{accept: last}, token}
 		currentState.transitions = append(currentState.transitions, &transition)
 
-	default:
-		fmt.Println("wrong type operator")
 	}
 
 	return currentState
