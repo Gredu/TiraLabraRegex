@@ -19,7 +19,7 @@ BenchmarkMatchLine104M-6        2000000000               0.46 ns/op
 BenchmarkMatchLineDots104M-6    1000000000               0.41 ns/op
 ```
 
-Suorituskykytestauksessa katsotaan kuinka nopeasti ohjelma käy läpi palan ihmisen DNA:ata. Tiedostoissa on siis vain osa genomia. Tiedostoilla on koko, joka näkyy ensimmäisessä sarakkeessa nimen lopussa juuri ennen M kirjainta. Eli tiedostoja on 63Mt, 81Mt ja 104Mt kokoisina. Jos funktion nimessä on "Dot", tarkoittaa se sitä, että automaatissa on käytetty myös ilmaisua `.`. Loput ovat vain literaaleja. Funktionimen lopussa on numero 6, joka tarkoittaa, että testi on suoritettu x86-64 arkkitehtuurille.
+Suorituskykytestauksessa katsotaan kuinka nopeasti ohjelma käy läpi palan ihmisen DNA:ta, joka on FASTA-formaatissa. Tiedostoissa on siis vain osa genomia. Tiedostoilla on koko, joka näkyy ensimmäisessä sarakkeessa nimen lopussa juuri ennen M kirjainta. Eli tiedostoja on 63Mt, 81Mt ja 104Mt kokoisina. Jos funktion nimessä on "Dot", tarkoittaa se sitä, että automaatissa on käytetty myös ilmaisua `.`. Loput ovat vain literaaleja. Funktionimen lopussa on numero 6, joka tarkoittaa, että testi on suoritettu x86-64 arkkitehtuurille.
 
 Rivejä tiedostoissa on seuraavasti:
   - 63Mt, rivejä 1 073 071
