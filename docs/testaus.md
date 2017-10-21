@@ -70,3 +70,35 @@ total:                                                  (statements)            
 ```
 
 Funktiot main ja matchLine eivät ole testattuja sen takia, että ne sisältävät paljon sellaista koodia, joka on todennäköisesti jo testattu Googlen toimesta. Testaamaton koodi liittyy suurimmaksi osaksi tiedoston avaamiseen, lukemiseen ja sulkemiseen, eikä siis mitään säännöllisten lausekkeiden tulkkiin liittyvää koodia suoranaisesti.
+
+
+## Testien toteutus
+
+Ohjelma koostuu kolmesta funktiosta, `parseRegexp()`, `generateMachine()` ja `match()`. Funktiota `generateMachine()` on tukemassa funktio `generateTransition()`. Koska funktiot toimivat erittäin lähekkäin, on ne päätetty sijoittaa samaan tiedostoon. Samalla tavalla myös `isDigit()` on funktion `match()` tukena.
+
+Projektista löytyy kolme testitiedostoa, jotka on nimetty pääfunktioiden mukaan. Esimerkiksi `generateMachine_test.go`. Tiedosto sisältää myös testin sitä tukevalle apufunktiolle `generateTransition()`.
+
+
+### generateMachine_test.go
+
+Testaa, että ohjelma rakentaa automaatin oikein. Tähän tiedostoon on käytetty hyvin vähän automaatiota verrattuna muihin testitiedostoihin. Automaatti siis luodaan ja sitä testaan "käsin", että tilat ja niiden siirtymät ovat varmasti oikeita. Koska kaikki on tehty manuaalisesti, ei testejä ole paljoa, vaikka koodin määrä näyttää suurelta.
+
+Tähän ratkaisuun ollaan tultu, koska testausohjelman rakentaminen on jo sen verran monimutkaista, että siinä samalla oikeastaan tulisi rakennettua jo itse ohjelman...
+
+
+### parseRegexp_test.go
+
+Testataan, että funktio parseeraa säännöllisen lausekkeen oikein palautettavaksi Tokeneiksi array/slice muodossa.
+
+Testejä on kumpaakin, sekä automaattisesti, että manuaalisesti. Osa säännöllisistä lauseista tekee jotain hieman epäsäännöllisempää, joita on helpompi testata manuaalisesti.
+
+
+### match_test.go
+
+Kahta edelistä on testattu hyvin, mutta tiedostoa `match.go` on testattu todella paljon. Syy tähän on, että testaus on helppo tehdä Table Driven Test periaatteella. On vain testattava, mitä syötteitä säännölliset lauseet hyväksyvät, ja tätä on helppo automatisoida. Käytännössä luodaan struct, joka sisältää sisään tulon (eng. inputs) ja halutun tuloksen. Nämä sitten iteroidaan läpi.
+
+Tiedostosta näkee hyvin selkeästi minkälaisia ilmaisuja ohjelma tällä hetkellä hyväksyy.
+
+Funktion `match()` testaaminen on ollut helppo tehdä TDD-menetelmällä, koska testitiedostoja on ollut helppo kirjoittaa. Sekin on ollut yksi syy, miksi tiedosto on paisunut testeistä.
+
+Lähde: https://github.com/golang/go/wiki/TableDrivenTests
