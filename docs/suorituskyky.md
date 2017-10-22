@@ -1,4 +1,7 @@
-# Suorituskykytestaus
+# Suorituskykymittaus
+
+Suorituskykymittaukseen käytetty data zipattuna kansiossa `data/dna/`. Jotta suorituskykymittausta voidaan tehdä, on tämä paketti purettava samaan kansioon kuin missä zip-tiedosto on. Data on zipattu tilan säästämiseksi.
+
 
 ## Kuinka suorituskykymittaus on tehty
 
