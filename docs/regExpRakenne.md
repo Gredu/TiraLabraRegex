@@ -1,4 +1,4 @@
-# Säännöllisen lausekkeen rakenne
+# Säännöllisten lausekkeiden rakenne
 
 Säännöllinen lause voidaan jakaa osiin erilaisten ilmausten perusteella. Tässä vaiheessa harjoitustyötä otetaan mukaan vain seuraavat: literaalit, metat ja määrän ilmaisut (kvanttorit?). Näiden määritelmä on myös määritelmä kuinka harjoitustyön säännöllisen lauseiden tulkki tulisi toimia. Ilmauksia tulisi pystyä yhdistelemään.
 
