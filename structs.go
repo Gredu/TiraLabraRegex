@@ -1,4 +1,4 @@
-package main
+package trex
 
 // Token is a single piece of regular expression. generateMachine() uses []Token for input to generate automata.
 type Token struct {
