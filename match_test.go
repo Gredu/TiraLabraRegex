@@ -1,4 +1,4 @@
-package trex
+package main
 
 import (
 	"testing"

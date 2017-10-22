@@ -1,4 +1,4 @@
-package trex
+package main
 
 // generateMachine generates automata.
 // It returns State which is the first State of the automata.

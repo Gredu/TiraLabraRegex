@@ -1,4 +1,4 @@
-package trex
+package main
 
 // match checks if input passes the automata.
 // It returns true if input passes the automata.
