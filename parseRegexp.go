@@ -1,3 +1,6 @@
+/*
+TiraLabraRegex is a regular expression intepreter
+*/
 package main
 
 import "fmt"

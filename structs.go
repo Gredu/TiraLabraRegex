@@ -1,3 +1,6 @@
+/*
+TiraLabraRegex is a regular expression intepreter
+*/
 package main
 
 // Token is a single piece of regular expression. generateMachine() uses []Token for input to generate automata.

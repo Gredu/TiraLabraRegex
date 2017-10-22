@@ -1,3 +1,6 @@
+/*
+TiraLabraRegex is a regular expression intepreter
+*/
 package main
 
 // generateMachine generates automata.
