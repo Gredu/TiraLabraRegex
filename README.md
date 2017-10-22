@@ -11,6 +11,7 @@ Harjoitustyö tehdään Go kielellä. Tulkki pyritään rakentamaan Laskennan ma
   - [Toteutus](docs/toteutus.md)
   - [Testaus](docs/testaus.md)
   - [Suorituskykymittaus](docs/suorituskyky.md)
+  - [Ohjelman rakenne](docs/ohjelmanRakenne.md)
 
 
 ## Viikkoraportit
