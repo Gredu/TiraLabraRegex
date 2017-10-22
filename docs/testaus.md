@@ -69,7 +69,7 @@ github.com/Gredu/TiraLabraRegex/parseRegexp.go:7:       parseRegexp             
 total:                                                  (statements)            79.3%
 ```
 
-Funktiot main ja matchLine eivät ole testattuja sen takia, että ne sisältävät paljon sellaista koodia, joka on todennäköisesti jo testattu Googlen toimesta. Testaamaton koodi liittyy suurimmaksi osaksi tiedoston avaamiseen, lukemiseen ja sulkemiseen, eikä siis mitään säännöllisten lausekkeiden tulkkiin liittyvää koodia suoranaisesti.
+Funktiot main ja matchLine eivät ole testattuja sen takia, että ne sisältävät paljon sellaista koodia, joka on todennäköisesti jo testattu Googlen toimesta. Testaamaton koodi liittyy suurimmaksi osaksi tiedoston avaamiseen, lukemiseen ja sulkemiseen, eikä sisällä säännöllisten lausekkeiden tulkkiin liittyvää koodia suoranaisesti.
 
 
 ## Testien toteutus
@@ -81,21 +81,21 @@ Projektista löytyy kolme testitiedostoa, jotka on nimetty pääfunktioiden muka
 
 ### generateMachine_test.go
 
-Testaa, että ohjelma rakentaa automaatin oikein. Tähän tiedostoon on käytetty hyvin vähän automaatiota verrattuna muihin testitiedostoihin. Automaatti siis luodaan ja sitä testaan "käsin", että tilat ja niiden siirtymät ovat varmasti oikeita. Koska kaikki on tehty manuaalisesti, ei testejä ole paljoa, vaikka koodin määrä näyttää suurelta.
+Testaa, että ohjelma rakentaa automaatin oikein. Tässä tiedostossa on käytetty hyvin vähän automatisointia verrattuna muihin testitiedostoihin. Automaatti siis luodaan ja sitä testaan "käsin", että tilat ja niiden siirtymät ovat varmasti oikeita. Koska kaikki on tehty manuaalisesti, ei testejä ole paljon vaikka koodin määrä näyttää suurelta.
 
-Tähän ratkaisuun ollaan tultu, koska testausohjelman rakentaminen on jo sen verran monimutkaista, että siinä samalla oikeastaan tulisi rakennettua jo itse ohjelman...
+Tähän ratkaisuun ollaan tultu, koska testausohjelman rakentaminesta tulisi hyvin monimutkainen, että siinä samalla oikeastaan tulisi rakennettua jo itse ohjelman.
 
 
 ### parseRegexp_test.go
 
 Testataan, että funktio parseeraa säännöllisen lausekkeen oikein palautettavaksi Tokeneiksi array/slice muodossa.
 
-Testejä on kumpaakin, sekä automaattisesti, että manuaalisesti. Osa säännöllisistä lauseista tekee jotain hieman epäsäännöllisempää, joita on helpompi testata manuaalisesti.
+Testejä on kumpaakin, sekä automaattisesti, että manuaalisesti. Osa säännöllisistä lauseista tekee joskus jotain monimutkaisempaa, joita on helpompi testata manuaalisesti.
 
 
 ### match_test.go
 
-Kahta edelistä on testattu hyvin, mutta tiedostoa `match.go` on testattu todella paljon. Syy tähän on, että testaus on helppo tehdä Table Driven Test periaatteella. On vain testattava, mitä syötteitä säännölliset lauseet hyväksyvät, ja tätä on helppo automatisoida. Käytännössä luodaan struct, joka sisältää sisään tulon (eng. inputs) ja halutun tuloksen. Nämä sitten iteroidaan läpi.
+Kaksi edellistä testitiedostoa testaavat jo ihan hyvin, mutta tiedostoa `match.go` on testattu todella paljon. Syy tähän on, että testaus on helppo tehdä Table Driven Test periaatteella. On vain testattava, mitä syötteitä säännölliset lauseet hyväksyvät, ja tätä on helppo automatisoida. Käytännössä luodaan struct, joka sisältää sisään tulon (eng. inputs) ja halutun tuloksen. Nämä sitten iteroidaan läpi.
 
 Tiedostosta näkee hyvin selkeästi minkälaisia ilmaisuja ohjelma tällä hetkellä hyväksyy.
 
