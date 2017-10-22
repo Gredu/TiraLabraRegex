@@ -58,7 +58,7 @@ Koodissa on muutamia osia, jotka saattavat vähän hämmentää. Todennäköises
 Token Structin kentän token, joka sisältää toisen Tokenin, ei päästy kunnolla hyödyntämään. Kyseessä on siis ilmaisu, joka monistaa tai kertoo jonkun toisen Tokenin. Parseeraaja kyllä kuitenkin osaa jo asettaa kertoimille Tokenit.
 
 
-### pipeline
+#### pipeline
 
 Ohjelma tunnistaa milloin shellissä on johdettu dataa pipelinellä (eng. pipeline, en tiedä mikä se on suomeksi), mutta datan haltuunottaminen jäi kesken. Idea oli, että ohjelmaa voisi käyttää esimerkiksi kuin shellin `grep` ohjelmaa. Esim:
 
