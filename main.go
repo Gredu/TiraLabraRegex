@@ -1,4 +1,7 @@
-package trex
+/*
+TiraLabraRegex is a regular expression intepreter
+*/
+package main
 
 import (
 	"bufio"
