@@ -1,6 +1,3 @@
-/*
-TiraLabraRegex is a regular expression intepreter
-*/
 package main
 
 // match checks if input passes the automata.
